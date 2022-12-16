@@ -1,0 +1,96 @@
+{
+  "name": "@dog/react-app",
+  "version": "1.0.0",
+  "homepage": ".",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^2.3.6",
+    "@cowprotocol/cow-sdk": "^0.0.14",
+    "@emotion/react": "^11.10.5",
+    "@emotion/style": "^0.8.0",
+    "@emotion/styled": "^11.10.5",
+    "@rainbow-me/rainbowkit": "^0.7.1",
+    "@react-three/fiber": "^7.0.17",
+    "@sentry/react": "^6.16.1",
+    "@sentry/tracing": "^6.16.1",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.8",
+    "amator": "^1.1.0",
+    "assert": "^2.0.0",
+    "axios": "^0.21.4",
+    "crypto-browserify": "^3.12.0",
+    "dotenv": "^8.2.0",
+    "ethers": "^5.7.2",
+    "final-form": "^4.20.4",
+    "framer-motion": "^7.6.2",
+    "https-browserify": "^1.0.0",
+    "lodash.debounce": "^4.0.8",
+    "merkletreejs": "^0.3.9",
+    "mobx": "^6.3.2",
+    "mobx-react-lite": "^3.2.0",
+    "ngraph.events": "^1.2.1",
+    "os-browserify": "^0.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-draggable": "^4.4.4",
+    "react-final-form": "^6.5.7",
+    "react-icons": "^4.6.0",
+    "react-loader-spinner": "^5.3.4",
+    "react-modal": "^3.14.4",
+    "react-router-dom": "^5.3.0",
+    "react-scripts": "^5.0.1",
+    "react-spring-bottom-sheet": "^3.4.1",
+    "source-map-explorer": "^2.5.2",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "three": "^0.134.0",
+    "typescript": "^4.4.4",
+    "url": "^0.11.0",
+    "util": "^0.12.5",
+    "wagmi": "^0.7.9",
+    "walletlink": "^2.1.5",
+    "wheel": "^1.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^6.12.2",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.10",
+    "@types/react-modal": "^3.13.1",
+    "@types/react-router-dom": "^5.3.2",
+    "@types/three": "^0.133.1",
+    "cross-env": "^7.0.3",
+    "customize-cra": "^1.0.0",
+    "prettier": "2.7.1",
+    "process": "^0.11.10",
+    "react-app-rewired": "^2.1.8",
+    "react-error-overlay": "^6.0.11"
+  },
+  "resolutions": {
+    "react-error-overlay": "6.0.9"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "build": "react-app-rewired build",
+    "start": "cross-env PORT=3001 react-app-rewired start",
+    "prestart": "yarn create-contracts && yarn write-build-number",
+    "create-contracts": "node ./scripts/create_contracts.js",
+    "write-build-number": "node ./scripts/write-build-number.js",
+    "test": "react-app-rewired test",
+    "format": "prettier --write './src/**/*.{js,jsx,ts,tsx,css}'"
+  }
+}

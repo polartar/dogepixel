@@ -1,0 +1,43 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:14-alpine
+    ports:
+      - '5432:5432'
+    volumes:
+      - pixelsdb:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    restart: always
+
+  redis:
+    image: redis:latest
+    ports:
+      - '${REDIS_PORT}:6379'
+    command: >
+      --requirepass ${REDIS_PASSWORD}
+    volumes:
+      - redis:/data
+
+  api:
+    image: "${DOCKER_REGISTRY:?No docker registry supplied}/doge-pixels:${BUILD_ID:?No build ID supplied}"
+    ports:
+      - '${PORT}:${PORT}'
+    env_file:
+      - .env
+    # https://github.com/prisma/prisma/issues/1385
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:?No postgres user proivded}:${POSTGRES_PASSWORD:?No db password provided}@db:5432/${POSTGRES_DB:?No db provided}?schema=public
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    depends_on:
+      - db
+      - redis
+    restart: always
+
+volumes:
+  pixelsdb:
+  redis:
+    driver: local
