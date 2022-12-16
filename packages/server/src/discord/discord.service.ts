@@ -1,11 +1,5 @@
 import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
-import {
-  Client,
-  GatewayIntentBits,
-  EmbedBuilder,
-  GuildChannel,
-  TextChannel,
-} from 'discord.js';
+import { Client, GatewayIntentBits, TextChannel } from 'discord.js';
 import { ConfigService } from '@nestjs/config';
 import { Configuration } from '../config/configuration';
 import { OnEvent } from '@nestjs/event-emitter';
@@ -78,7 +72,7 @@ export class DiscordService implements OnModuleInit {
   async DEBUG_TEST(id: number) {
     if (this.config.get('isDev')) {
       return this.post({
-        from: '0x0000000000000000000000000000000000000000',
+        from: this.ethers.zeroAddress,
         to: '0xd801d86C10e2185a8FCBccFB7D7baF0A6C5B6BD5',
         tokenId: id,
       });
