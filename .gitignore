@@ -1,0 +1,89 @@
+packages/subgraph/subgraph.yaml
+packages/subgraph/generated
+packages/subgraph/abis/*
+packages/hardhat/*.txt
+**/aws.json
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+**/node_modules
+
+packages/hardhat/artifacts*
+packages/hardhat/deployments/*
+!packages/hardhat/deployments/.gitkeep
+!packages/react-app/src/contracts/external_contracts.js
+packages/hardhat/cache*
+packages/**/data
+!packages/react-app/src/contracts/contracts.js
+packages/hardhat/.env
+packages/server/src/.env
+packages/server/combined.log
+packages/server/error.log
+packages/server/dump.rdb
+packages/server/deploy.key
+packages/react-app/src/build_number.ts
+
+# ts
+packages/hardhat-ts/cache
+# secrets
+.secret
+
+packages/subgraph/config/config.json
+tenderly.yaml
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+coverage
+
+# production
+build
+# yarn / eslint
+.yarn/cache
+.yarn/install-state.gz
+.yarn/build-state.yml
+.eslintcache
+# testing
+coverage
+
+# production
+build
+
+# Hardhat files
+/packages/hardhat/cache
+#artifacts
+
+# misc
+.DS_Store
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.idea
+
+# Local Netlify folder
+.netlify
+*.tsbuildinfo
+*.stackdump
+
+# doc directory
+/doc
+
+caleb-tools/
+partyka-tools/scratchpad
+packages/validation-tool
+
+**/.env
+**/*/.env
+
+tools/
+
+# ignore all workflows for now
+calebtools
+
+packages/server/dist
+packages/server/src/assets/images/*pointer
