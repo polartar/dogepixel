@@ -83,7 +83,6 @@ packages/validation-tool
 tools/
 
 # ignore all workflows for now
-calebtools
 
 packages/server/dist
 packages/server/src/assets/images/*pointer
